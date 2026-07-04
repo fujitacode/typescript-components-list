@@ -1,7 +1,7 @@
 import { Heading } from "../components/Heading/Heading";
-import { Stack } from "../components/Stack/Stack";
 
-export const HomePage = () =>
-	Stack(`
-  ${Heading("ホーム画面のタイトル", "1")}
-`);
+export const HomePage = () => `
+  ${Heading("タイトル", "1")}
+  ${Heading("タイトル", "2")}
+  ${Heading("タイトル", "3")}
+`;

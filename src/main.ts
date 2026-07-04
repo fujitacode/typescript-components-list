@@ -1,5 +1,4 @@
-import "./styles/reset.css";
-import "./styles/style.css";
+import "./styles/index.css";
 
 import { Stack } from "./components/Stack/Stack";
 import { CatalogPage } from "./pages/CatalogPage";
@@ -25,7 +24,7 @@ const render = (path: string) => {
             </header>
             
             <main>
-                ${Stack(pageContent, "lg")}
+                ${Stack(pageContent)}
             </main>
         `;
 	}
