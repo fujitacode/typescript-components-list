@@ -1,3 +1,7 @@
+import "./styles/reset.css";
+import "./styles/style.css";
+
+import { Stack } from "./components/Stack/Stack";
 import { CatalogPage } from "./pages/CatalogPage";
 import { HomePage } from "./pages/HomePage";
 
@@ -9,7 +13,21 @@ const routes: Record<string, () => string> = {
 const render = (path: string) => {
 	const app = document.querySelector<HTMLDivElement>("#app");
 	if (app) {
-		app.innerHTML = routes[path] ? routes[path]() : routes["/"]();
+		const pageContent = routes[path] ? routes[path]() : routes["/"]();
+
+		app.innerHTML = `
+            <header class="site-header">
+                <h1>My UI Library</h1>
+                <nav>
+                    <button data-link="/">Home</button>
+                    <button data-link="/catalog">Catalog</button>
+                </nav>
+            </header>
+            
+            <main>
+                ${Stack(pageContent, "lg")}
+            </main>
+        `;
 	}
 };
 
