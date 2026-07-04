@@ -16,11 +16,7 @@ const render = (path: string) => {
 
 		app.innerHTML = `
             <header class="site-header">
-                <h1>My UI Library</h1>
-                <nav>
-                    <button data-link="/">Home</button>
-                    <button data-link="/catalog">Catalog</button>
-                </nav>
+                <h1>Header</h1>
             </header>
             
             <main>
