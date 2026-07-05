@@ -1,3 +1,6 @@
+import "./styles/index.css";
+
+import { Stack } from "./components/Stack/Stack";
 import { CatalogPage } from "./pages/CatalogPage";
 import { HomePage } from "./pages/HomePage";
 
@@ -9,14 +12,34 @@ const routes: Record<string, () => string> = {
 const render = (path: string) => {
 	const app = document.querySelector<HTMLDivElement>("#app");
 	if (app) {
-		app.innerHTML = routes[path] ? routes[path]() : HomePage();
+		const pageContent = routes[path] ? routes[path]() : routes["/"]();
+
+		app.innerHTML = `
+            <header class="site-header">
+                <h1>Header</h1>
+            </header>
+            
+            <main>
+                ${Stack(pageContent)}
+            </main>
+        `;
 	}
 };
 
-const app = document.querySelector<HTMLDivElement>("#app");
-if (app) {
-	render(window.location.pathname);
-}
+document.addEventListener("click", (e) => {
+	const target = (e.target as HTMLElement).closest("[data-link]");
+	if (target) {
+		e.preventDefault();
+		const path = target.getAttribute("data-link");
+		if (path && routes[path]) {
+			window.history.pushState({}, "", path);
+			render(path);
+		}
+	}
+});
 
-// 初期表示
-render("/");
+window.addEventListener("popstate", () => {
+	render(window.location.pathname);
+});
+
+render(window.location.pathname);
