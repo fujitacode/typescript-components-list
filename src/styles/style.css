@@ -1,14 +1,9 @@
-html {
-	font-size: 62.5%;
+:root {
+	line-height: 145%;
 }
 
-:root {
-	font-size: 1.8rem;
-	line-height: 145%;
-
-	@media (width <= 1024px) {
-		font-size: 1.6rem;
-	}
+html {
+	font-size: 62.5%;
 }
 
 body {

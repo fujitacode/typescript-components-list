@@ -1,9 +1,16 @@
-import "./Stack.css";
+import { cn } from "../../libs/utils";
 
-export const Stack = (content: string, size: "sm" | "md" | "lg" = "md") => {
-	return `
-        <div class="stack stack--${size}" >
-            ${content}
-        </div>
-        `;
+export const Stack = (
+	content: string,
+	{
+		size = "md",
+		className = "",
+	}: {
+		size?: "sm" | "md" | "lg";
+		className?: string;
+	} = {},
+) => {
+	const classes = cn("stack", `stack--${size}`, className);
+
+	return `<div class="${classes}">${content}</div>`;
 };

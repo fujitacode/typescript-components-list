@@ -1,12 +1,25 @@
+import { cn } from "../../libs/utils";
+
 export const Heading = (
 	content: string,
-	size: "1" | "2" | "3" | "4" | "5" | "6",
-	align?: "center" | "right",
-	className: string = "",
+	{
+		size = "2",
+		align,
+		className = "",
+	}: {
+		size?: "1" | "2" | "3" | "4" | "5" | "6";
+		align?: "center" | "right";
+		className?: string;
+	} = {},
 ) => {
-	return `
-        <h${size} class="heading heading--size-${size} heading--align-${align} ${className}">
-            ${content}
-        </h${size}>
-    `;
+	const classes = cn(
+		"heading",
+		`heading--size-${size}`,
+		align && `heading--align-${align}`,
+		className,
+	);
+
+	return `<h${size} class="${classes}">${content}</h${size}>`;
 };
+
+// 呼び出し：Heading("タイトル", { size: "1", align: "center" })
