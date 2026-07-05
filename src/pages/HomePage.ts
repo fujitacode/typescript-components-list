@@ -1,4 +1,5 @@
 import { Heading } from "../components/Heading/Heading";
+import { LinkText } from "../components/LinkText/LinkText";
 import { Text } from "../components/Text/Text";
 
 export const HomePage = () => `
@@ -54,4 +55,12 @@ export const HomePage = () => `
   ${Text("【大文字】本文テキスト", { variant: "lead", align: "right" })}
   ${Text("【小文字】本文テキスト", { variant: "small", align: "right" })}
   ${Text("【注釈】※本文テキスト", { variant: "muted", align: "right" })}
+
+  ${Heading("--リンクテキスト--", { size: "1" })}
+  ${LinkText("リンクテキスト", { href: "//example.com" })}
+  ${LinkText("【別窓】リンクテキスト", { href: "//example.com", blank: true })}
+  ${LinkText("リンクテキスト", { href: "//example.com", align: "center" })}
+  ${LinkText("【別窓】リンクテキスト", { href: "//example.com", blank: true, align: "center" })}
+  ${LinkText("リンクテキスト", { href: "//example.com", align: "right" })}
+  ${LinkText("【別窓】リンクテキスト", { href: "//example.com", blank: true, align: "right" })}
 `;
