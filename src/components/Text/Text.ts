@@ -1,23 +1,19 @@
-import { cn } from "../../libs/utils";
-
 export const Text = (
-	content: string,
-	options: {
-		align?: "center" | "right";
-		variant?: "lead" | "small" | "muted";
-		modifiers?: ("bold" | "italic" | "underline" | "strike" | "mosaic")[];
-		className?: string;
-	} = {},
+    content: string,
+    options: {
+        align?: "center" | "right";
+        variant?: "lead" | "small" | "muted";
+        modifiers?: ("bold" | "italic" | "underline" | "strike" | "mosaic")[];
+        className?: string;
+    } = {},
 ) => {
-	const { align, variant, modifiers = [], className = "" } = options;
+    const { align, variant, modifiers = [], className = "" } = options;
 
-	const classes = cn(
-		"text",
-		align && `text--align-${align}`,
-		variant && `text--variant-${variant}`,
-		...modifiers.map((m) => `is-${m}`),
-		className,
-	);
+    const modifierClasses = modifiers.map((m) => ` is-${m}`).join("");
 
-	return `<p class="${classes}">${content}</p>`;
+    return (`
+        <p class="text${align ? ` text--align-${align}` : ""}${variant ? ` text--variant-${variant}` : ""}${modifierClasses}${className ? ` ${className}` : ""}">
+            ${content}
+        </p>
+    `);
 };

@@ -1,16 +1,15 @@
-import { cn } from "../../libs/utils";
-
 export const Stack = (
-	content: string,
-	{
-		size = "md",
-		className = "",
-	}: {
-		size?: "sm" | "md" | "lg";
-		className?: string;
-	} = {},
+    content: string,
+    options: {
+        size?: "sm" | "md" | "lg";
+        className?: string;
+    } = {},
 ) => {
-	const classes = cn("stack", `stack--${size}`, className);
+    const { size = "md", className = "" } = options;
 
-	return `<div class="${classes}">${content}</div>`;
+    return (`
+        <div class="stack stack--${size}${className ? ` ${className}` : ""}">
+            ${content}
+        </div>
+    `);
 };
