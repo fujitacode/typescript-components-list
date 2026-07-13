@@ -12,8 +12,8 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.3",
+    "glob": "^13.0.6",
     "typescript": "~6.0.2",
-    "vite": "^8.1.1",
-    "vite-plugin-pages": "^0.33.3"
+    "vite": "^8.1.1"
   }
 }
