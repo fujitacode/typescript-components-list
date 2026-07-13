@@ -1,19 +1,22 @@
 {
-  "name": "typescript-components-list",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "lint": "biome check src/",
-    "format": "biome format --write src/"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "2.5.3",
-    "glob": "^13.0.6",
-    "typescript": "~6.0.2",
-    "vite": "^8.1.1"
-  }
+	"name": "typescript-components-list",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"preview": "vite preview",
+		"lint": "biome check --write --unsafe",
+		"format": "biome format --write src/"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.5.3",
+		"@types/node": "^26.1.1",
+		"glob": "^13.0.6",
+		"posthtml": "^0.16.7",
+		"posthtml-include": "^2.0.1",
+		"typescript": "~6.0.2",
+		"vite": "^8.1.1"
+	}
 }
